@@ -3,15 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mount Marketing helps ambitious teams clarify their message, improve their campaigns, and build marketing assets that convert.">
-  <title>Mount Marketing | Strategic Marketing Support</title>
+  <meta name="description" content="UK marketing support for specialist businesses. Case studies, campaign support and monthly content from Mount Marketing, with a Yorkshire focus.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:title" content="Mount Marketing | Case Studies and Content Support">
+  <meta property="og:description" content="Case study, campaign and monthly content support for specialist businesses across the UK, with a Yorkshire focus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.mountmarketing.co.uk/">
+  <meta property="og:image" content="https://www.mountmarketing.co.uk/mount-marketing-logo.jpg">
+  <meta property="og:image:alt" content="Mount Marketing logo">
+  <meta property="og:site_name" content="Mount Marketing">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mount Marketing | Case Studies and Content Support">
+  <meta name="twitter:description" content="Clear, credible marketing support for specialist businesses across the UK.">
+  <meta name="twitter:image" content="https://www.mountmarketing.co.uk/mount-marketing-logo.jpg">
+  <title>Mount Marketing | Case Studies and Content Support</title>
+  <link rel="canonical" href="https://www.mountmarketing.co.uk/">
+  <link rel="icon" href="mount-marketing-logo.jpg" type="image/jpeg">
   <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Mount Marketing",
+      "url": "https://www.mountmarketing.co.uk/",
+      "logo": "https://www.mountmarketing.co.uk/mount-marketing-logo.jpg",
+      "image": "https://www.mountmarketing.co.uk/mount-marketing-logo.jpg",
+      "description": "Case study, campaign and monthly content support for specialist businesses across the United Kingdom, with an emphasis on Yorkshire.",
+      "email": "james@mountmarketing.co.uk",
+      "telephone": "+447926022319",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Yorkshire"
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Case Study Package",
+          "price": "395",
+          "priceCurrency": "GBP",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Case Study Package",
+            "description": "Turn completed projects into clear, commercially useful case studies."
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Campaign Support Package",
+          "price": "895",
+          "priceCurrency": "GBP",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Campaign Support Package",
+            "description": "Marketing support for launches, events, webinars, partnerships and other key commercial moments."
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Content Support Subscription",
+          "price": "450",
+          "priceCurrency": "GBP",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Content Support Subscription",
+            "description": "Monthly content support for specialist businesses that need regular, credible output."
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <nav class="nav container" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Mount Marketing home">
-        <img class="brand-logo" src="Mount Marketing's Logo.jpg" alt="" aria-hidden="true">
+        <img class="brand-logo" src="mount-marketing-logo.jpg" width="52" height="52" alt="" aria-hidden="true" decoding="async">
         <span>Mount Marketing</span>
       </a>
       <div class="nav-links">
@@ -169,12 +242,22 @@
         <div>
           <p class="eyebrow">Contact</p>
           <h2>Ready to make your marketing clearer?</h2>
-          <p>Tell us what you are working on and we will suggest the simplest next step.</p>
+          <p>Tell us what you are working on and we will suggest the simplest next step. Based in Yorkshire, supporting specialist businesses across the UK.</p>
         </div>
         <div class="contact-actions">
           <a class="button button-primary" href="mailto:james@mountmarketing.co.uk">james@mountmarketing.co.uk</a>
-          <p class="contact-note">Prefer a quick call? Email a short note and we will come back with the next best step.</p>
+          <a class="button button-secondary" href="tel:+447926022319">+44 79 260 223 19</a>
+          <p class="contact-note">Prefer to talk it through? Book a Discovery Appointment below.</p>
         </div>
+      </div>
+      <div class="container booking-card" id="booking">
+        <div class="section-heading booking-heading">
+          <p class="eyebrow">Book a Call</p>
+          <h2>Discovery Call</h2>
+          <p>Choose a time for an introductory conversation and share a few details about what you need support with.</p>
+        </div>
+        <iframe class="booking-frame" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2JtTygYZ_IqD1hRm0EwS0fgqvNNGFv_9KPntcAmHEZ0OWl1vW6KorKhKJmAhQKxlQgXxW2qiH-?gv=true" title="Discovery appointment booking calendar" loading="lazy"></iframe>
+        <p class="booking-fallback">Calendar not loading? <a href="https://calendar.app.google/5YVGcQKUd2nKksT29" target="_blank" rel="noopener">Open the introduction booking page</a>.</p>
       </div>
     </section>
   </main>
@@ -185,5 +268,54 @@
       <a href="#top">Back to top</a>
     </div>
   </footer>
+  <script>
+    const samePageLinks = document.querySelectorAll('a[href^="#"]');
+    const animateScroll = (targetPosition, duration = 850) => {
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const startTime = performance.now();
+
+      const easeInOutCubic = (progress) => {
+        return progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+      };
+
+      const step = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeInOutCubic(progress);
+
+        window.scrollTo(0, startPosition + distance * easedProgress);
+
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+
+      window.requestAnimationFrame(step);
+    };
+
+    samePageLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href");
+        const target = targetId === "#top" ? document.body : document.querySelector(targetId);
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        const headerOffset = document.querySelector(".site-header").offsetHeight + 20;
+        const targetPosition = targetId === "#top"
+          ? 0
+          : target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+        animateScroll(targetPosition);
+        history.pushState(null, "", targetId);
+      });
+    });
+  </script>
 </body>
 </html>

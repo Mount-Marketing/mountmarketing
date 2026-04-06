@@ -6,7 +6,7 @@ This is a simple static brochure website for Mount Marketing. It has no build st
 
 - `index.html` contains the page content, navigation, sections, links, and contact email.
 - `styles.css` contains the visual styling, colors, spacing, layout, and responsive behavior.
-- `Mount Marketing's Logo.jpg` is used in the header branding.
+- `mount-marketing-logo.jpg` is used in the header branding, favicon, and social preview metadata.
 
 ## Common Edits
 
@@ -14,6 +14,8 @@ This is a simple static brochure website for Mount Marketing. It has no build st
 - Replace the example proof cards in the `#proof` section with real client stories, project names, or results.
 - Change the brand color by editing `--color-accent` at the top of `styles.css`.
 - Add or remove services by copying one of the `.service-card` blocks in `index.html`.
+- The final public homepage URL is set as `https://www.mountmarketing.co.uk/`.
+- The booking calendar is embedded in the contact section under the title `Discovery Call`.
 
 ## Preview
 
