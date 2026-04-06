@@ -139,6 +139,69 @@ h1 {
   letter-spacing: -0.075em;
 }
 
+.hero-title .word-complex,
+.hero-title .word-clear {
+  display: inline-block;
+  position: relative;
+}
+
+.hero-title .word-complex {
+  color: var(--color-accent);
+}
+
+.hero-title .word-complex::before {
+  content: attr(data-scramble);
+  position: absolute;
+  inset: 0 auto auto 0;
+  min-width: 100%;
+  color: var(--color-accent);
+  font-family: Consolas, "Courier New", monospace;
+  letter-spacing: -0.045em;
+  opacity: 0;
+  text-shadow: 0 0 18px rgba(0, 215, 255, 0.55);
+  white-space: nowrap;
+}
+
+.hero-title.is-animating .word-complex {
+  color: transparent;
+}
+
+.hero-title.is-animating .word-complex::before {
+  animation: codeJitter 150ms steps(2, end) infinite;
+  opacity: 1;
+}
+
+.hero-title.is-settled .word-complex {
+  animation: complexSettle 520ms ease both;
+}
+
+.hero-title .word-clear {
+  isolation: isolate;
+}
+
+.hero-title .word-clear::before {
+  content: "";
+  position: absolute;
+  inset: -0.22em -0.35em;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.9), transparent 34%),
+    radial-gradient(circle at 60% 45%, rgba(0, 215, 255, 0.32), transparent 42%),
+    radial-gradient(circle at 75% 55%, rgba(255, 255, 255, 0.72), transparent 36%);
+  border-radius: 999px;
+  filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-title.is-animating .word-clear {
+  animation: clearReveal 1320ms ease-out both;
+}
+
+.hero-title.is-animating .word-clear::before {
+  animation: fogDissipate 1320ms ease-out both;
+}
+
 h2 {
   margin-bottom: 18px;
   font-size: clamp(2rem, 4vw, 3.35rem);
@@ -156,6 +219,73 @@ h3 {
   max-width: 680px;
   margin-bottom: 34px;
   font-size: 1.18rem;
+}
+
+@keyframes codeJitter {
+  0% {
+    transform: translate(0, 0) skewX(0deg);
+  }
+
+  50% {
+    transform: translate(0.018em, -0.015em) skewX(-2deg);
+  }
+
+  100% {
+    transform: translate(-0.014em, 0.012em) skewX(2deg);
+  }
+}
+
+@keyframes complexSettle {
+  0% {
+    filter: blur(2px);
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 18px rgba(0, 215, 255, 0.32);
+  }
+
+  100% {
+    filter: blur(0);
+    letter-spacing: inherit;
+    text-shadow: none;
+  }
+}
+
+@keyframes clearReveal {
+  0% {
+    filter: blur(16px);
+    opacity: 0.35;
+    transform: translateY(0.05em);
+    text-shadow: 0 0 30px rgba(15, 37, 55, 0.45);
+  }
+
+  72% {
+    filter: blur(2px);
+    opacity: 0.9;
+    text-shadow: 0 0 12px rgba(0, 215, 255, 0.18);
+  }
+
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow: none;
+  }
+}
+
+@keyframes fogDissipate {
+  0% {
+    opacity: 0.9;
+    transform: translateX(-18%) scale(1);
+  }
+
+  58% {
+    opacity: 0.45;
+    transform: translateX(12%) scale(1.12);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(32%) scale(1.28);
+  }
 }
 
 .hero-actions,
@@ -251,14 +381,16 @@ h3 {
 }
 
 .card-grid,
-.proof-grid {
+.proof-grid,
+.pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
 .service-card,
-.proof-card {
+.proof-card,
+.pricing-card {
   min-height: 260px;
   padding: 30px;
   background: var(--color-panel);
@@ -278,12 +410,6 @@ h3 {
 
 .service-package p {
   margin-bottom: 0;
-}
-
-.service-price {
-  color: var(--color-accent);
-  font-size: 1.15rem;
-  font-weight: 800;
 }
 
 .includes-label {
@@ -363,12 +489,49 @@ h3 {
   color: #c8d5e4;
 }
 
+.proof-disclaimer {
+  max-width: 860px;
+  margin: 24px 0 0;
+  color: #9fb1c6;
+  font-size: 0.86rem;
+}
+
 .proof-number {
   display: inline-flex;
   margin-bottom: 54px;
   color: var(--color-accent);
   font-weight: 800;
   letter-spacing: 0.15em;
+}
+
+.pricing-section {
+  background: var(--color-soft);
+}
+
+.pricing-card {
+  display: grid;
+  grid-template-rows: 44px 82px 1fr;
+  min-height: 260px;
+  box-shadow: 0 16px 50px rgba(15, 37, 55, 0.08);
+}
+
+.pricing-card h3,
+.pricing-card p {
+  margin-bottom: 0;
+}
+
+.pricing-card-featured {
+  border-color: rgba(0, 215, 255, 0.55);
+  box-shadow: 0 24px 70px rgba(0, 215, 255, 0.14);
+}
+
+.pricing-price {
+  align-self: center;
+  color: var(--color-accent);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
 }
 
 .contact-section {
@@ -500,7 +663,8 @@ h3 {
   }
 
   .card-grid,
-  .proof-grid {
+  .proof-grid,
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 
