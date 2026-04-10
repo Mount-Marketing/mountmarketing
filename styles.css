@@ -545,7 +545,7 @@ h3 {
 }
 
 .proof-card {
-  min-height: 320px;
+  min-height: 392px;
   padding: 0;
   background: transparent;
   border: 0;
@@ -568,7 +568,7 @@ h3 {
 .proof-card-inner {
   position: relative;
   display: grid;
-  min-height: 320px;
+  min-height: 392px;
   transform-style: preserve-3d;
   transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-delay: 0ms;
@@ -599,7 +599,7 @@ h3 {
 .proof-card-face {
   grid-area: 1 / 1;
   display: grid;
-  min-height: 320px;
+  min-height: 392px;
   padding: 30px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -607,6 +607,7 @@ h3 {
   backface-visibility: hidden;
   transform-style: preserve-3d;
   transition: border-color 220ms ease, box-shadow 220ms ease;
+  gap: 14px;
 }
 
 @keyframes proofCardFlip {
@@ -624,7 +625,44 @@ h3 {
 }
 
 .proof-card-front {
-  grid-template-rows: 82px 58px 1fr auto;
+  grid-template-rows: 152px auto 1fr auto;
+}
+
+.proof-thumbnail {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.proof-thumbnail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 37, 55, 0.04), rgba(15, 37, 55, 0.42));
+  pointer-events: none;
+}
+
+.proof-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proof-thumbnail .proof-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  margin-bottom: 0;
+  padding: 7px 10px;
+  color: #ffffff;
+  font-size: 0.72rem;
+  background: rgba(15, 37, 55, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
 }
 
 .proof-card-back {
