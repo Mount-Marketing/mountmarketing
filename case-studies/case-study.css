@@ -47,6 +47,11 @@ p {
   margin: 0 auto;
 }
 
+.site-header .container,
+.site-footer .container {
+  width: min(100% - 40px, 1120px);
+}
+
 .page-shell {
   padding: 32px 0 56px;
 }
@@ -290,11 +295,16 @@ h3 {
     background: #ffffff;
   }
 
+  .site-header,
+  .site-footer,
+  .site-footer::before {
+    display: none;
+  }
+
   .page-shell {
     padding: 0;
   }
 
-  .back-home,
   .page-actions {
     display: none;
   }
@@ -320,5 +330,12 @@ h3 {
   .hero-card,
   .content-card {
     padding: 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header .container,
+  .site-footer .container {
+    width: min(100% - 28px, 1120px);
   }
 }

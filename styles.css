@@ -115,7 +115,118 @@ p {
   font-weight: 600;
 }
 
-.nav-links a:hover {
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-parent-link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  transition: color 180ms ease;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.nav-dropdown-toggle::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-top: -4px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.nav-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 20;
+  min-width: 260px;
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(220, 228, 239, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 22px 48px rgba(15, 37, 55, 0.14);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.nav-menu a {
+  padding: 10px 12px;
+  color: var(--color-ink);
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.nav-menu a:hover {
+  color: var(--color-deep);
+  background: var(--color-soft);
+}
+
+.nav-dropdown:hover .nav-parent-link,
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-parent-link,
+.nav-dropdown:focus-within .nav-dropdown-toggle,
+.nav-dropdown.is-open .nav-parent-link,
+.nav-dropdown.is-open .nav-dropdown-toggle {
+  color: var(--color-accent);
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle::before,
+.nav-dropdown:focus-within .nav-dropdown-toggle::before,
+.nav-dropdown.is-open .nav-dropdown-toggle::before {
+  transform: rotate(-135deg);
+  margin-top: 2px;
+}
+
+.nav-dropdown:hover .nav-menu,
+.nav-dropdown:focus-within .nav-menu,
+.nav-dropdown.is-open .nav-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-links > a:hover {
   color: var(--color-accent);
 }
 
@@ -594,6 +705,7 @@ h3 {
 
 .proof-card {
   min-height: 392px;
+  height: 100%;
   padding: 0;
   background: transparent;
   border: 0;
@@ -617,6 +729,7 @@ h3 {
   position: relative;
   display: grid;
   min-height: 392px;
+  height: 100%;
   transform-style: preserve-3d;
   transition: transform 720ms cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-delay: 0ms;
@@ -648,6 +761,7 @@ h3 {
   grid-area: 1 / 1;
   display: grid;
   min-height: 392px;
+  height: 100%;
   padding: 30px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -674,6 +788,11 @@ h3 {
 
 .proof-card-front {
   grid-template-rows: 152px auto 1fr auto;
+}
+
+.proof-card-front h3 {
+  min-height: 2.5em;
+  align-self: start;
 }
 
 .proof-thumbnail {
@@ -1107,6 +1226,45 @@ h3 {
     gap: 12px;
   }
 
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown::after {
+    display: none;
+  }
+
+  .nav-dropdown-trigger {
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav-parent-link {
+    flex: 1;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-line);
+    border-right: 0;
+    border-radius: 12px 0 0 12px;
+  }
+
+  .nav-dropdown-toggle {
+    width: 48px;
+    min-height: 48px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-line);
+    border-left: 0;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .nav-menu {
+    position: static;
+    min-width: 0;
+    margin-top: 10px;
+    box-shadow: none;
+  }
+
   .nav-button {
     min-height: 40px;
     padding: 0 16px;
@@ -1177,6 +1335,10 @@ h3 {
   .nav-links {
     flex-wrap: wrap;
     justify-content: flex-start;
+  }
+
+  .nav-button {
+    width: 100%;
   }
 
   .hero-actions,
