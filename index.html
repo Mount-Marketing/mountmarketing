@@ -24,7 +24,7 @@
   <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=20260410-seo-pass">
+  <link rel="stylesheet" href="styles.css?v=20260503-mobile-carousel-track-v2">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -172,7 +172,10 @@
         <img class="brand-logo" src="mount-marketing-logo.jpg" width="52" height="52" alt="" aria-hidden="true" decoding="async">
         <span>MOUNT MARKETING</span>
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+      <div class="nav-links" id="primary-navigation">
         <div class="nav-dropdown" data-nav-dropdown>
           <div class="nav-dropdown-trigger">
             <a class="nav-parent-link" href="#services">Services</a>
@@ -208,7 +211,7 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Marketing strategy and execution support</p>
-          <h1 class="hero-title" data-hero-title>Making the <span class="word-complex" data-scramble="complex">complex</span> <span class="word-clear">clear</span>.</h1>
+          <h1 class="hero-title" data-hero-title>Making the <span class="word-complex" data-scramble="complex">complex</span> <span class="word-clear">clear.</span></h1>
           <p class="hero-lede">Mount Marketing is a Yorkshire marketing agency for specialist businesses with technical products or services. We sharpen positioning, plan practical campaigns, and create case studies, sales assets and content that support growth across Yorkshire and the wider UK.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#contact">Start a conversation</a>
@@ -233,8 +236,9 @@
           <h2>Marketing agency services for case studies, campaigns and content support.</h2>
           <p>Focused package-based marketing support for specialist businesses that need clearer messaging, better campaigns and more commercially useful case studies and content.</p>
         </div>
-        <div class="card-grid">
-          <article class="service-card service-package">
+        <div class="mobile-carousel-viewport">
+          <div class="card-grid" data-mobile-carousel data-carousel-label="Services">
+            <article class="service-card service-package">
             <div>
               <h3>Case Study Package</h3>
             </div>
@@ -307,7 +311,13 @@
               <span>Ideal for</span>
               <p>Businesses that want steady monthly marketing support without the overhead of a larger agency.</p>
             </div>
-          </article>
+            </article>
+          </div>
+        </div>
+        <div class="mobile-carousel-controls" data-carousel-controls aria-label="Services navigation">
+          <button class="mobile-carousel-control" type="button" data-carousel-prev aria-label="Show previous service">Previous</button>
+          <span class="mobile-carousel-counter" data-carousel-counter aria-live="polite">1 of 3</span>
+          <button class="mobile-carousel-control" type="button" data-carousel-next aria-label="Show next service">Next</button>
         </div>
       </div>
     </section>
@@ -333,8 +343,9 @@
           <h2>Our Proof</h2>
           <p>Mount Marketing projects that made specialist businesses easier to understand, easier to sell and easier to find.</p>
         </div>
-        <div class="proof-grid">
-          <article class="proof-card" data-proof-card tabindex="0" aria-expanded="false">
+        <div class="mobile-carousel-viewport">
+          <div class="proof-grid" data-mobile-carousel data-carousel-label="Case Studies">
+            <article class="proof-card" data-proof-card tabindex="0" aria-expanded="false">
             <div class="proof-card-inner">
               <div class="proof-card-face proof-card-front">
                 <div class="proof-thumbnail">
@@ -399,7 +410,13 @@
                   </div>
                 </div>
               </div>
-          </article>
+            </article>
+          </div>
+        </div>
+        <div class="mobile-carousel-controls mobile-carousel-controls-dark" data-carousel-controls aria-label="Case studies navigation">
+          <button class="mobile-carousel-control" type="button" data-carousel-prev aria-label="Show previous case study">Previous</button>
+          <span class="mobile-carousel-counter" data-carousel-counter aria-live="polite">1 of 3</span>
+          <button class="mobile-carousel-control" type="button" data-carousel-next aria-label="Show next case study">Next</button>
         </div>
         <p class="proof-disclaimer">*Sample case studies.</p>
       </div>
@@ -412,8 +429,9 @@
           <h2>Focused marketing support, without full financial obligation.</h2>
           <p>Every package is scoped around the work you need, with clear deliverables and no unnecessary agency or in-house overhead.</p>
         </div>
-        <div class="pricing-grid">
-          <article class="pricing-card">
+        <div class="mobile-carousel-viewport">
+          <div class="pricing-grid" data-mobile-carousel data-carousel-label="Pricing">
+            <article class="pricing-card">
             <h3>Case Study Package</h3>
             <p class="pricing-price">From &pound;395</p>
             <p>For turning completed projects into credible written, visual and sales-ready proof that helps buyers trust what you do.</p>
@@ -430,7 +448,13 @@
             <p class="pricing-price">From &pound;495 p/m</p>
             <p>For regular, credible content support without bringing everything in-house.</p>
             <a class="pricing-link" href="services/content-support-subscription.html">View package</a>
-          </article>
+            </article>
+          </div>
+        </div>
+        <div class="mobile-carousel-controls" data-carousel-controls aria-label="Pricing navigation">
+          <button class="mobile-carousel-control" type="button" data-carousel-prev aria-label="Show previous price">Previous</button>
+          <span class="mobile-carousel-counter" data-carousel-counter aria-live="polite">1 of 3</span>
+          <button class="mobile-carousel-control" type="button" data-carousel-next aria-label="Show next price">Next</button>
         </div>
       </div>
     </section>
@@ -442,8 +466,9 @@
           <h2>Questions specialist businesses ask before choosing a marketing agency.</h2>
           <p>Clear answers about case studies, campaigns, content support and how Mount Marketing works.</p>
         </div>
-        <div class="faq-grid">
-          <article class="faq-item">
+        <div class="mobile-carousel-viewport">
+          <div class="faq-grid" data-mobile-carousel data-carousel-label="FAQs">
+            <article class="faq-item">
             <h3>What kind of businesses does Mount Marketing work with?</h3>
             <p>Mount Marketing works best with specialist businesses, technical products and service-led companies that need clearer positioning, stronger marketing assets and commercially useful content. The work is based in Yorkshire and supports businesses across the UK.</p>
           </article>
@@ -466,7 +491,13 @@
           <article class="faq-item">
             <h3>Do you only work in Yorkshire?</h3>
             <p>Mount Marketing is based in Yorkshire and works across the United Kingdom. Yorkshire is a strong regional focus, but support is not limited to one area.</p>
-          </article>
+            </article>
+          </div>
+        </div>
+        <div class="mobile-carousel-controls" data-carousel-controls aria-label="FAQ navigation">
+          <button class="mobile-carousel-control" type="button" data-carousel-prev aria-label="Show previous FAQ">Previous</button>
+          <span class="mobile-carousel-counter" data-carousel-counter aria-live="polite">1 of 6</span>
+          <button class="mobile-carousel-control" type="button" data-carousel-next aria-label="Show next FAQ">Next</button>
         </div>
       </div>
     </section>
@@ -531,7 +562,7 @@
       <a href="#top">Back to top</a>
     </div>
   </footer>
-  <script src="site.js" defer></script>
+  <script src="site.js?v=20260503-mobile-carousel-track-v2" defer></script>
   <script>
     const samePageLinks = document.querySelectorAll('a[href^="#"]');
     const animateScroll = (targetPosition, duration = 850) => {
